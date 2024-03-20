@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = so_long.c
+SRCS = so_long.c read_map.c parsing.c get_next_line.c get_next_line_utils.c
 
 OBJ = $(SRCS:.c=.o)
 
@@ -27,3 +27,5 @@ clean :
 
 fclean :
 		$(RM) $(OBJ) $(NAME)
+
+re : fclean all
