@@ -7,7 +7,8 @@ void ft_hieght(t_data *data, char *file)
     fd = open (file, O_RDONLY);
     if (fd == -1)
     {
-        print_error("Error\nfilde file\n");
+        print_error("fail the file\n");
+        exit(1);
     }
     while (1)
     {
@@ -30,11 +31,17 @@ void map_dyali(t_data *data, char *file)
         int fd;
         data->map = (char **)malloc(sizeof(char *) * (lenght  + 1));
         if (data->map == NULL)
-            print_error("ERROR\n failed malloc\n");
+        {
+            print_error("Error\n failed malloc\n");
+            exit(1);
+        }
 
     fd = open (file, O_RDONLY);
     if (fd == -1)
-        print_error("Error\nfilde file\n");
+    {
+        print_error("fail the file\n");
+        exit(1);
+    }
     lenght = 0;
     while (1)
     {
