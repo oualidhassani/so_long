@@ -15,11 +15,11 @@ RM = rm -rf
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+# %.o: %.c
+# 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 
 clean : 

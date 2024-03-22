@@ -30,6 +30,6 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*linesub(char *line_buffer);
 char			*mybuffer(int fd, char *accumulation, char *buffer);
 void			ft_free(char **buffer);
-void print_error(char *str);
-
+void            print_error(char *str);
+void        ft_check(t_data *data);
 #endif
