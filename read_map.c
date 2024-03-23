@@ -71,7 +71,7 @@ void ft_check(t_data *data)
         while(j < data->width)
         {
             if(data->map[i][j] != 'C' && data->map[i][j] != 'P' && data->map[i][j] != '0' && data->map[i][j] != 'E' && data->map[i][j] != '1')
-                print_error("Error there is a wrong charachter!\n");
+                print_error("Error there is a wrong charachter!\n" );
              j++;
         }
         i++;

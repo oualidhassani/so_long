@@ -22,7 +22,6 @@ typedef struct data
 void ft_read_map(t_data *data, char *file);
 void ft_hieght(t_data *data, char *file);
 char	*get_next_line(int fd);
-size_t			ft_strlen(const char *s);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
@@ -32,4 +31,7 @@ char			*mybuffer(int fd, char *accumulation, char *buffer);
 void			ft_free(char **buffer);
 void            print_error(char *str);
 void        ft_check(t_data *data);
+void        ifthemapisvalid(t_data *data);
+int 	      ft_strlen1(char *s);
+size_t	ft_strlen(const char *s);
 #endif
