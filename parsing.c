@@ -22,11 +22,7 @@ void ifthemapisvalid(t_data *data)
     // int len_height = ft_strlen1(data->map[0]);
 
     int i = 1;
-
-    while (data->map[i])
-    {
-        j++;
-    }
+    
     while (data->map[i] != NULL) {
         int  row_len = ft_strlen1(data->map[i]);
         if (row_len != len_width) {
