@@ -158,3 +158,15 @@ void flood_fill(t_data *data)
     print2DArray(data->map2 ,data->height ,data->width);
     check_after_flood_fill(data);
 }
+
+void check_dotber(char **av)
+{
+    int len;
+    char *str = ".ber";
+    len = ft_strlen(av[1]);
+        if(len >= 4)
+        {
+            if(ft_strcmp(av[1] + len - 4, str) != 0)
+                print_error("is not the good argument !");
+        }
+    }

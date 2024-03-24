@@ -21,9 +21,10 @@ int main(int ac, char **av)
     ft_hieght(&data, av[1]);
     if(map_dyali(&data, av[1]) == 1)
     {
-        
+        //free;
         print_error("Error in map\n");
     }
+    check_dotber(av);
     ifthemapisvalid(&data);
     ft_check(&data);
     check_walls(&data);
