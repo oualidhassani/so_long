@@ -13,9 +13,8 @@ void ft_hieght(t_data *data, char *file)
     while (1)
     {
         buffer = get_next_line(fd);
-
         if(buffer == NULL)
-        break;
+             break;
        data->height++;
        free(buffer);
        buffer = NULL;
@@ -23,19 +22,18 @@ void ft_hieght(t_data *data, char *file)
     }
     close(fd);
 }
-void map_dyali(t_data *data, char *file)
+int map_dyali(t_data *data, char *file)
 {
 
-        int lenght = data->height;
-        char *buffer;
-        int fd;
-        data->map = (char **)malloc(sizeof(char *) * (lenght  + 1));
-        if (data->map == NULL)
-        {
-            print_error("Error\n failed malloc\n");
-            exit(1);
-        }
-
+    int lenght = data->height;
+    char *buffer;
+    int fd;
+    data->map = (char **)malloc(sizeof(char *) * (lenght  + 1));
+    if (data->map == NULL)
+    {
+        print_error("Error\n failed malloc\n");
+        exit(1);
+    }
     fd = open (file, O_RDONLY);
     if (fd == -1)
     {
@@ -53,11 +51,31 @@ void map_dyali(t_data *data, char *file)
        lenght++;
        free(buffer);
        buffer = NULL;
-
+    }
+    if(lenght == 0)
+    {
+        close(fd);
+        return (1);
     }
     data->map[lenght] = 0;
     data->width = ft_strlen(data->map[0]);
     close(fd);
+    return (0);
+}
+
+
+void ft_copy(t_data *data)
+{
+    int i;
+
+    i = 0;
+    data->map2 = (char **)malloc(sizeof(char *) *data->height);
+    while (i < data->height)
+    {
+        data->map2[i] = ft_strdup(data->map[i]);
+        i++;
+    }
+    data->map[i] = NULL;
 }
 
 void ft_check(t_data *data)
@@ -77,13 +95,4 @@ void ft_check(t_data *data)
         i++;
     }
 }
-void ft_read_map(t_data *data, char *file){
-    // int i = 0;
-       ft_hieght(data, file);
-       map_dyali(data, file);
-    //    while (i < data->height)
-    //    {
-    //     printf("%s", data->map[i]);
-    //     i++;
-    //    }
-}
+

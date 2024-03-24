@@ -16,8 +16,14 @@ typedef struct data
     int height;
     int width;
     char **map;
+    char **map2;
 }t_data;
 
+typedef struct s_posistion
+{
+    int x;
+    int y;
+}  t_position;
 
 void ft_read_map(t_data *data, char *file);
 void ft_hieght(t_data *data, char *file);
@@ -34,4 +40,10 @@ void        ft_check(t_data *data);
 void        ifthemapisvalid(t_data *data);
 int 	      ft_strlen1(char *s);
 size_t	ft_strlen(const char *s);
+void    check_walls(t_data *data);
+void check_walls_helper(t_data *data);
+void flood_fill(t_data *data);
+void ft_copy(t_data *data);
+int map_dyali(t_data *data, char *file);
+
 #endif
