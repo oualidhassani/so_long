@@ -2,7 +2,7 @@ NAME = so_long
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 SRCS = so_long.c read_map.c parsing.c get_next_line.c get_next_line_utils.c so_long_utils.c
 

@@ -16,18 +16,23 @@ void print_error(char *str)
 int main(int ac, char **av)
 {
     t_data data;
+    data.height = 0;
+    data.width = 0;
+    check_dotber(av);
     if(ac > 2 || ac < 2)
         print_error("Error need : ./so_long [map.ber]\n");
     ft_hieght(&data, av[1]);
     if(map_dyali(&data, av[1]) == 1)
     {
+        ft_free1(data.map);
         print_error("Error in map\n");
     }
-    // check_dotber(av);
-    // ifthemapisvalid(&data);
-    // ft_check(&data);
-    // check_walls(&data);
-    // check_walls_helper(&data);
-    // ft_copy(&data);
-    // flood_fill(&data);
+    ifthemapisvalid(&data);
+    ft_check(&data);
+    check_walls(&data);
+    check_walls_helper(&data);
+    ft_copy(&data);
+    flood_fill(&data);
+    ft_free1(data.map);
+    ft_free1(data.map2);
 }

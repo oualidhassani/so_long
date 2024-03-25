@@ -25,10 +25,10 @@ int map_dyali(t_data *data, char *file)
     int lenght = data->height;
     char *buffer;
     int fd;
-    data->map = (char **)malloc(sizeof(char *) * (lenght  + 1));
     fd = open (file, O_RDONLY);
     if (fd == -1)
         print_error("fail the file\n");
+    data->map = (char **)malloc(sizeof(char *) * (lenght  + 1));
     if (data->map == NULL)
     {
         close(fd);
@@ -41,6 +41,7 @@ int map_dyali(t_data *data, char *file)
         buffer = get_next_line(fd);
         if (buffer == NULL)
              break;
+        
         buffer[ft_strlen(buffer) - 1] = '\0';
         data->map[lenght] =  ft_strdup(buffer);
        lenght++;
@@ -64,13 +65,24 @@ void ft_copy(t_data *data)
     int i;
 
     i = 0;
-    data->map2 = (char **)malloc(sizeof(char *) *data->height);
+    int length = data->height;
+    data->map2 = (char **)malloc(sizeof(char *) * (length + 1)); 
+    if (data->map2 == NULL) {
+        return;
+    }
     while (i < data->height)
     {
         data->map2[i] = ft_strdup(data->map[i]);
+        if (data->map2[i] == NULL) {
+            int j = 0;
+            while(i > j) {
+                ft_free1(data->map2);
+                j++;
+            }
+        }
         i++;
     }
-    data->map[i] = NULL;
+    data->map2[i] = NULL;
 }
 
 void ft_check(t_data *data)
