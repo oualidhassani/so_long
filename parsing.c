@@ -1,5 +1,15 @@
 #include "so_long.h"
+void ft_free1(char **str)
+{
+    int i =0;
 
+    while(str[i])
+    {
+        free(str[i]);
+        i++;
+    }
+    free(str);
+}
 int 	ft_strlen1(char *s)
 {
 	int 	c;
@@ -139,7 +149,7 @@ void check_after_flood_fill(t_data *data)
         {
             if (data->map2[i][j] == 'C' || data->map2[i][j] == 'E')
             {
-                //free
+                ft_free1(data->map2);
                 print_error("Error Map invalid\n");
             }
             j++;
@@ -155,7 +165,7 @@ void flood_fill(t_data *data)
 
     p = get_player_pos(data);
     flood_fill_recursive(data->map2,p.x,p.y);
-    print2DArray(data->map2 ,data->height ,data->width);
+    print2DArray(data->map ,data->height ,data->width);
     check_after_flood_fill(data);
 }
 

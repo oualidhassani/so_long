@@ -46,4 +46,5 @@ void            flood_fill(t_data *data);
 void            ft_copy(t_data *data);
 int             map_dyali(t_data *data, char *file);
 void            check_dotber(char **av);
+void ft_free1(char **str);
 #endif
