@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <mlx.h>
 #ifndef BUFFER_SIZE 
 #define BUFFER_SIZE 1
 #endif

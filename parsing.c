@@ -123,7 +123,8 @@ void flood_fill_recursive(char **map,int x,int y)
     //if l7atyt return map[x][y];
     if (map[x][y] == '1' || map[x][y] == 'X')
         return ;
-    if (map[x][y] == 'E')
+
+    if (map[x][y] == 'E') 
     {
         map[x][y] = 'X';
         return;
