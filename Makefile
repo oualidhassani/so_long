@@ -1,6 +1,6 @@
 NAME = so_long
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
@@ -15,11 +15,11 @@ RM = rm -rf
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 
- %.o: %.c 
-     $(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+# %.o: %.c
+# 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 
 clean : 
