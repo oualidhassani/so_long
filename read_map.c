@@ -5,8 +5,8 @@ void ft_hieght(t_data *data, char *file)
     int fd;
     char *buffer;
     fd = open (file, O_RDONLY);
-    // if (fd == -1)
-    //     print_error("fail the file\n");
+    if (fd == -1)
+        print_error("fail the file\n");
     while (1)
     {
         buffer = get_next_line(fd);

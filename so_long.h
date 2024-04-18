@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <mlx.h>
 #ifndef BUFFER_SIZE 
 #define BUFFER_SIZE 1
 #endif
@@ -16,6 +16,7 @@ typedef struct data
     int width;
     char **map;
     char **map2;
+    char *texture;
 }t_data;
 
 typedef struct s_posistion
@@ -46,5 +47,8 @@ void            flood_fill(t_data *data);
 void            ft_copy(t_data *data);
 int             map_dyali(t_data *data, char *file);
 void            check_dotber(char **av);
+void            parsingall(int ac, char **av);
 void ft_free1(char **str);
+void put_images(t_data *data);
+void print2DArray(char **arr, int rows, int cols);
 #endif
