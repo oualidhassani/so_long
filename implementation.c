@@ -11,7 +11,14 @@ void put_images(t_data *data)
     void *wall;
     wall = mlx_xpm_file_to_image(mlx, "textures/wall.xpm", &height, &width);
     void *player = mlx_xpm_file_to_image(mlx, "textures/player.xpm", &height, &width);
-    //  printf("Value of wall: %p\n", wall);
+    void *tiles = mlx_xpm_file_to_image(mlx, "textures/tiles.xpm", &height, &width);
+    void *coin = mlx_xpm_file_to_image(mlx, "textures/coin.xpm", &height, &width);
+    void *door = mlx_xpm_file_to_image(mlx, "textures/door1.xpm", &height, &width);
+
+    //  printf("Value of tiles: %p\n", tiles);
+    //  printf("Value of coins: %p\n", coin);
+    //  printf("Value of door: %p\n", door);
+
     int i = 0;
     int j;
       while (data->map[i])
@@ -19,14 +26,15 @@ void put_images(t_data *data)
         j = 0;
         while (data->map[i][j])
         {
+            mlx_put_image_to_window(mlx, mlx_win,tiles, j * 64, i *64);
             if(data->map[i][j] == '1')
                 mlx_put_image_to_window(mlx, mlx_win, wall, j * 64, i * 64);
-            // else if(data->map[i][j] == '0')
-            //     mlx_put_image_to_window(mlx, mlx_win,);
             else if(data->map[i][j] == 'P')
                 mlx_put_image_to_window(mlx, mlx_win,player,j * 64,i * 64);
-            // else if(data->map[i][j] == 'C')
-            //     mlx_put_image_to_window(mlx, mlx_win,);
+            else if(data->map[i][j] == 'C')
+                mlx_put_image_to_window(mlx, mlx_win,coin, j * 64, i * 64);
+            else if(data->map[i][j] == 'E')
+                mlx_put_image_to_window(mlx, mlx_win,door, j * 64, i * 64);
             j++;
         }
         i++;
