@@ -10,6 +10,11 @@ void move_up(t_data *data)
             data->map[player_position.x - 1][player_position.y] = 'P';
             render_map(data);
         }
+    if(calculatecoin(data) == 0 && data->map[player_position.x - 1][player_position.y] == 'E')
+        {
+            write(1,"YOU WIN",7);
+             exit(0);
+        }
 }
 
 void move_down(t_data *data)
@@ -21,6 +26,11 @@ void move_down(t_data *data)
             data->map[player_position.x + 1][player_position.y] = 'P';
             render_map(data);
         }
+        if(calculatecoin(data) == 0 && data->map[player_position.x + 1][player_position.y] == 'E')
+            {
+                write(1,"YOU WIN",7);
+                exit(0);
+            }
 }
 
 void move_left(t_data *data)
@@ -32,6 +42,11 @@ void move_left(t_data *data)
             data->map[player_position.x][player_position.y] =  '0';
             data->map[player_position.x][player_position.y - 1] = 'P';
             render_map(data);
+        }
+        if(calculatecoin(data) == 0 && data->map[player_position.x][player_position.y - 1] == 'E')
+        {
+            write(1,"YOU WIN",7);
+            exit(0);
         }
 }
 
@@ -45,4 +60,9 @@ void move_right(t_data *data)
             data->map[player_position.x][player_position.y + 1] = 'P';
             render_map(data);
         }
+    if(calculatecoin(data) == 0 && data->map[player_position.x][player_position.y + 1] == 'E')
+    {
+        write(1,"YOU WIN",7);
+        exit(0);
+    }
 }

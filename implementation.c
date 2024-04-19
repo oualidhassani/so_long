@@ -1,7 +1,7 @@
 #include "so_long.h"
 int  keycode(int keycode, t_data *data)
 {
-    printf("%d\n",keycode);
+    // printf("%d\n",keycode);
 
     if(keycode == 13)
         move_up(data);
@@ -12,10 +12,28 @@ int  keycode(int keycode, t_data *data)
     if (keycode == 2)
         move_right(data);
     if(keycode == 53)
-        exit(1);        
+        exit(1);
+            
     return(0);
 }
 
+int calculatecoin(t_data *data)
+{
+    int i =0;
+    int coin = 0;
+    while(data->map[i])
+    {
+        int j = 0;
+        while(data->map[i][j])
+        {
+            if(data->map[i][j] == 'C')
+                coin++;
+            j++;
+        }
+        i++;
+    }
+    return(coin);
+}
 void    render_map(t_data *data)
 {
     int width = 64;
@@ -26,6 +44,9 @@ void    render_map(t_data *data)
     void *tiles = mlx_xpm_file_to_image(data->mlx, "textures/tiles.xpm", &height, &width);
     void *coin = mlx_xpm_file_to_image(data->mlx, "textures/coin.xpm", &height, &width);
     void *door = mlx_xpm_file_to_image(data->mlx, "textures/door1.xpm", &height,&width);
+    void *dooropen = mlx_xpm_file_to_image(data->mlx, "textures/door2.xpm", &height, &width);
+    if(door == NULL || player == NULL || tiles == NULL || coin == NULL || dooropen == NULL || wall == NULL)
+        print_error("error of texture\n");
       int i = 0;
     int j;
       while (data->map[i])
@@ -41,7 +62,12 @@ void    render_map(t_data *data)
             else if(data->map[i][j] == 'C')
                 mlx_put_image_to_window(data->mlx, data->win,coin, j * 64, i * 64);
             else if(data->map[i][j] == 'E')
-                mlx_put_image_to_window(data->mlx, data->win,door, j * 64, i * 64);
+            {
+                if(calculatecoin(data) == 0)
+                    mlx_put_image_to_window(data->mlx, data->win, dooropen, j* 64, i * 64);
+                else
+                    mlx_put_image_to_window(data->mlx, data->win,door, j * 64, i * 64);
+            }
             j++;
         }
         i++;

@@ -64,4 +64,5 @@ void move_up(t_data *data);
 void move_down(t_data *data);
 void move_left(t_data *data);
 void move_right(t_data *data);
+int calculatecoin(t_data *data);
 #endif
