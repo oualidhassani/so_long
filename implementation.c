@@ -1,7 +1,6 @@
 #include "so_long.h"
 int  keycode(int keycode, t_data *data)
 {
-    // printf("%d\n",keycode);
 
     if(keycode == 13)
         move_up(data);
