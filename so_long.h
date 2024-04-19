@@ -17,6 +17,8 @@ typedef struct data
     char **map;
     char **map2;
     char *texture;
+    void *win;
+    void *mlx;
 }t_data;
 
 typedef struct s_posistion
@@ -25,6 +27,9 @@ typedef struct s_posistion
     int y;
 }  t_position;
 
+// int  keycode(int keycode, t_position *position);
+void check_if_valid_player(t_data *data);
+t_position get_player_pos(t_data *data);
 char	        *ft_strchr(const char *s, int c);
 void            ft_read_map(t_data *data, char *file);
 void            ft_hieght(t_data *data, char *file);
@@ -51,4 +56,12 @@ void            parsingall(int ac, char **av);
 void ft_free1(char **str);
 void put_images(t_data *data);
 void print2DArray(char **arr, int rows, int cols);
+void    render_map(t_data *data);
+
+/////////////////////////////////////////////////////keycodefunciton 
+
+void move_up(t_data *data);
+void move_down(t_data *data);
+void move_left(t_data *data);
+void move_right(t_data *data);
 #endif

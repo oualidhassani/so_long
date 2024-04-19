@@ -82,3 +82,25 @@ void check_walls_helper(t_data *data)
         x++;  
     }
 }
+
+void check_if_valid_player(t_data *data)
+{
+    int i = 0;
+    int flag = 0;
+    int flag2 = 0;
+    while (data->map[i])
+    {
+        int j = 0;
+        while (data->map[i][j])
+        {
+            if(data->map[i][j] == 'P')
+                flag++;
+            if(data->map[i][j] == 'E')
+                flag2++;
+            j++;
+        }        
+        i++;
+    }
+    if(flag != 1 || flag2 != 1)
+        print_error("error\n");
+}

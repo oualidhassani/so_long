@@ -12,6 +12,7 @@ void parsingall(int ac, char **av)
     if(map_dyali(&data, av[1]) == 1)
         print_error("Error in map\n");
     ifthemapisvalid(&data);
+    check_if_valid_player(&data);
     ft_check(&data);
     check_walls(&data);
     check_walls_helper(&data);
@@ -19,6 +20,4 @@ void parsingall(int ac, char **av)
     flood_fill(&data);
     print2DArray(data.map ,data.height ,data.width);
      put_images(&data);
-    
-
 }
