@@ -19,6 +19,13 @@ typedef struct data
     char *texture;
     void *win;
     void *mlx;
+    void *wall;
+    void *player;
+    void *tiles;
+    void *coin;
+    void *door;
+    void *dooropen;
+
 }t_data;
 
 typedef struct s_posistion
@@ -65,4 +72,5 @@ void move_down(t_data *data);
 void move_left(t_data *data);
 void move_right(t_data *data);
 int calculatecoin(t_data *data);
+void destroyimage(t_data *data);
 #endif

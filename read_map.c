@@ -41,8 +41,9 @@ int map_dyali(t_data *data, char *file)
         buffer = get_next_line(fd);
         if (buffer == NULL)
              break;
-        
-        buffer[ft_strlen(buffer) - 1] = '\0';
+        if (buffer[ft_strlen(buffer) - 1] == '\n')
+            buffer[ft_strlen(buffer) - 1] = '\0';
+
         data->map[lenght] =  ft_strdup(buffer);
        lenght++;
        free(buffer);

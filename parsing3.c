@@ -1,5 +1,23 @@
 #include "so_long.h"
 
+void checkifthemapbig(t_data *data)
+{
+    int x = 2650;
+    int y = 1440;
+
+    if(data->height * 64 > y || data->width * 64 > x)
+        print_error("error more than the screen");
+}
+void destroyimage(t_data *data)
+{
+    mlx_destroy_image(data->mlx, data->wall);
+    mlx_destroy_image(data->mlx, data->tiles);
+    mlx_destroy_image(data->mlx, data->player);
+    mlx_destroy_image(data->mlx, data->coin);
+    mlx_destroy_image(data->mlx, data->door);
+    mlx_destroy_image(data->mlx, data->dooropen);
+    mlx_destroy_window(data->mlx, data->win);
+}
 void parsingall(int ac, char **av)
 {
      t_data data;
@@ -16,8 +34,9 @@ void parsingall(int ac, char **av)
     ft_check(&data);
     check_walls(&data);
     check_walls_helper(&data);
+    checkifthemapbig(&data);
     ft_copy(&data);
     flood_fill(&data);
-    print2DArray(data.map ,data.height ,data.width);
-     put_images(&data);
+    ft_free(data.map2);
+    put_images(&data);
 }
