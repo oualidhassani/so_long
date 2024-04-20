@@ -101,5 +101,5 @@ void check_if_valid_player(t_data *data)
         i++;
     }
     if(flag != 1 || flag2 != 1)
-        print_error("error\n");
+        print_error("error there is no exit or player\n");
 }
