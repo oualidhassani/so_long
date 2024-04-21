@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 14:46:49 by ohassani          #+#    #+#             */
-/*   Updated: 2024/03/20 21:25:47 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:30:15 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (NULL);
-	// if (start < 0 || start >= ft_strlen(s))
-	// 	return (ft_strdup(""));
+	if (start < 0 || start >= ft_strlen(s))
+		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
 	ptr = malloc((len + 1) * sizeof(char));
