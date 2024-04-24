@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:57:29 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/21 12:57:57 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:52:52 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct data
 	void	*coin;
 	void	*door;
 	void	*dooropen;
+	int 	count;
 
 }			t_data;
 

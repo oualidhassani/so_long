@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:46:50 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/21 12:47:14 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:59:11 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	keycode(int keycode, t_data *data)
 {
+	if (keycode == 13 || keycode == 1 || keycode == 0 || keycode == 2)
+		printf("%d\n", data->count++);
 	if (keycode == 13)
 		move_up(data);
 	if (keycode == 1)
@@ -129,6 +131,12 @@ void	render_map(t_data *data)
 	}
 }
 
+int  exit_from_window(void)
+{
+	exit(0);
+	return(0);
+}
+
 void	put_images(t_data *data)
 {
 	data->mlx = mlx_init();
@@ -136,5 +144,6 @@ void	put_images(t_data *data)
 			"so_long");
 	render_map(data);
 	mlx_key_hook(data->win, &keycode, data);
+	mlx_hook(data->win, 17, 0, exit_from_window, data);
 	mlx_loop(data->mlx);
 }
