@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:57:29 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/24 18:52:52 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:42:18 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,11 @@ void		move_left(t_data *data);
 void		move_right(t_data *data);
 int			calculatecoin(t_data *data);
 void		destroyimage(t_data *data);
+void	put_the_image_on(t_data *data, int i, int j);
+void	ft_putchar(char c);
+void	ft_putnbr(int n);
+int	exit_from_window(t_data *data);
+int	calculatecoin(t_data *data);
+int	keycode(int keycode, t_data *data);
+void	handletextures(t_data *data);
 #endif

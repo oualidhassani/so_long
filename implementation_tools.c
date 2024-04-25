@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:31:22 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/21 12:46:18 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:46:02 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	move_up(t_data *data)
 		data->map[player_position.x - 1][player_position.y] = 'P';
 		render_map(data);
 	}
-	if (calculatecoin(data) == 0 && data->map[player_position.x
-		- 1][player_position.y] == 'E')
+	if (calculatecoin(data) == 0 && \
+		data->map[player_position.x - 1][player_position.y] == 'E')
 	{
 		ft_free1(data->map);
 		destroyimage(data);
@@ -46,8 +46,8 @@ void	move_down(t_data *data)
 		data->map[player_position.x + 1][player_position.y] = 'P';
 		render_map(data);
 	}
-	if (calculatecoin(data) == 0 && data->map[player_position.x
-		+ 1][player_position.y] == 'E')
+	if (calculatecoin(data) == 0 && \
+		data->map[player_position.x + 1][player_position.y] == 'E')
 	{
 		ft_free1(data->map);
 		destroyimage(data);

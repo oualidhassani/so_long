@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:46:50 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/24 18:59:11 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:42:47 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int	keycode(int keycode, t_data *data)
 {
+	if (data->count == 0)
+		data->count = 1;
 	if (keycode == 13 || keycode == 1 || keycode == 0 || keycode == 2)
-		printf("%d\n", data->count++);
+	{
+		ft_putnbr(data->count++);
+		write(1, "\n", 1);
+	}
 	if (keycode == 13)
 		move_up(data);
 	if (keycode == 1)
@@ -33,50 +38,10 @@ int	keycode(int keycode, t_data *data)
 	return (0);
 }
 
-int	calculatecoin(t_data *data)
-{
-	int	i;
-	int	coin;
-	int	j;
-
-	i = 0;
-	coin = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j])
-		{
-			if (data->map[i][j] == 'C')
-				coin++;
-			j++;
-		}
-		i++;
-	}
-	return (coin);
-}
-
-void	handletextures(t_data *data)
-{
-	if (data->player != NULL)
-		mlx_destroy_image(data->mlx, data->player);
-	if (data->wall != NULL)
-		mlx_destroy_image(data->mlx, data->wall);
-	if (data->coin != NULL)
-		mlx_destroy_image(data->mlx, data->coin);
-	if (data->door != NULL)
-		mlx_destroy_image(data->mlx, data->door);
-	if (data->dooropen != NULL)
-		mlx_destroy_image(data->mlx, data->dooropen);
-	if (data->tiles != NULL)
-		mlx_destroy_image(data->mlx, data->tiles);
-}
-
-void	render_map(t_data *data)
+void	declaration(t_data *data)
 {
 	int	width;
 	int	height;
-	int	i;
-	int	j;
 
 	width = 64;
 	height = 64;
@@ -97,44 +62,54 @@ void	render_map(t_data *data)
 	{
 		ft_free1(data->map);
 		handletextures(data);
-		print_error("error of texture\n");
+		print_error("Error of texture\n");
 	}
+}
+
+void	put_the_image_on(t_data *data, int i, int j)
+{
+	mlx_put_image_to_window(data->mlx, data->win, data->tiles, j * 64, i * 64);
+	if (data->map[i][j] == '1')
+		mlx_put_image_to_window(data->mlx, data->win, data->wall, j * 64, i
+			* 64);
+	else if (data->map[i][j] == 'P')
+		mlx_put_image_to_window(data->mlx, data->win, data->player, j * 64, i
+			* 64);
+	else if (data->map[i][j] == 'C')
+		mlx_put_image_to_window(data->mlx, data->win, data->coin, j * 64, i
+			* 64);
+	else if (data->map[i][j] == 'E')
+	{
+		if (calculatecoin(data) == 0)
+			mlx_put_image_to_window(data->mlx, data->win, data->dooropen, j
+				* 64, i * 64);
+		else
+			mlx_put_image_to_window(data->mlx, data->win, data->door, j * 64, i
+				* 64);
+	}
+}
+
+void	render_map(t_data *data)
+{
+	int	width;
+	int	height;
+	int	i;
+	int	j;
+
+	width = 64;
+	height = 64;
+	declaration(data);
 	i = 0;
 	while (data->map[i])
 	{
 		j = 0;
 		while (data->map[i][j])
 		{
-			mlx_put_image_to_window(data->mlx, data->win, data->tiles, j * 64, i
-				* 64);
-			if (data->map[i][j] == '1')
-				mlx_put_image_to_window(data->mlx, data->win, data->wall, j
-					* 64, i * 64);
-			else if (data->map[i][j] == 'P')
-				mlx_put_image_to_window(data->mlx, data->win, data->player, j
-					* 64, i * 64);
-			else if (data->map[i][j] == 'C')
-				mlx_put_image_to_window(data->mlx, data->win, data->coin, j
-					* 64, i * 64);
-			else if (data->map[i][j] == 'E')
-			{
-				if (calculatecoin(data) == 0)
-					mlx_put_image_to_window(data->mlx, data->win,
-						data->dooropen, j * 64, i * 64);
-				else
-					mlx_put_image_to_window(data->mlx, data->win, data->door, j
-						* 64, i * 64);
-			}
+			put_the_image_on(data, i, j);
 			j++;
 		}
 		i++;
 	}
-}
-
-int  exit_from_window(void)
-{
-	exit(0);
-	return(0);
 }
 
 void	put_images(t_data *data)

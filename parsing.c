@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:48:59 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/21 12:50:59 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:08:27 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,3 +131,4 @@ void	check_if_valid_player(t_data *data)
 		print_error("error there is no exit or player\n");
 	}
 }
+.
