@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:51:12 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 16:01:46 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:40:08 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ t_position	get_player_pos(t_data *data)
 
 void	flood_fill_recursive(char **map, int x, int y)
 {
-	// if l7atyt return (map[x][y]);
 	if (map[x][y] == '1' || map[x][y] == 'X')
 		return ;
 	if (map[x][y] == 'E')
@@ -95,7 +94,7 @@ void	check_dotber(char **av)
 
 	str = ".ber";
 	len = ft_strlen(av[1]);
-	if(av[1][len - 4] == '.' && av[1][len -5] == '/')
+	if (av[1][len - 4] == '.' && av[1][len - 5] == '/')
 		print_error("Error hiden file");
 	if (len >= 4)
 	{

@@ -38,7 +38,7 @@ typedef struct data
 	void	*coin;
 	void	*door;
 	void	*dooropen;
-	int 	count;
+	int		count;
 
 }			t_data;
 
@@ -87,11 +87,11 @@ void		move_left(t_data *data);
 void		move_right(t_data *data);
 int			calculatecoin(t_data *data);
 void		destroyimage(t_data *data);
-void	put_the_image_on(t_data *data, int i, int j);
-void	ft_putchar(char c);
-void	ft_putnbr(int n);
-int	exit_from_window(t_data *data);
-int	calculatecoin(t_data *data);
-int	keycode(int keycode, t_data *data);
-void	handletextures(t_data *data);
+void		put_the_image_on(t_data *data, int i, int j);
+void		ft_putchar(char c);
+void		ft_putnbr(int n);
+int			exit_from_window(t_data *data);
+int			calculatecoin(t_data *data);
+int			keycode(int keycode, t_data *data);
+void		handletextures(t_data *data);
 #endif
