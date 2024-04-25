@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:48:59 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 16:08:57 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 23:54:59 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ifthemapisvalid(t_data *data)
 		if (row_len != len_width)
 		{
 			ft_free1(data->map);
-			print_error("the rows are not the same length\n");
+			print_error("Error the rows are not the same length\n");
 			return ;
 		}
 		i++;
@@ -102,14 +102,12 @@ void	check_walls_helper(t_data *data)
 	}
 }
 
-void	check_if_valid_player(t_data *data)
+void	check_if_valid_player(t_data *data, int i)
 {
-	int	i;
 	int	flag;
 	int	flag2;
 	int	j;
 
-	i = 0;
 	flag = 0;
 	flag2 = 0;
 	while (data->map[i])
@@ -128,6 +126,6 @@ void	check_if_valid_player(t_data *data)
 	if (flag != 1 || flag2 != 1)
 	{
 		ft_free1(data->map);
-		print_error("error there is no exit or player\n");
+		print_error("Error there is no exit or player\n");
 	}
 }

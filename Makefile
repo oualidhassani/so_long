@@ -2,9 +2,9 @@ NAME = so_long
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -ggdb -fsanitize=address
 
-SRCS = so_long.c read_map.c parsing.c get_next_line.c get_next_line_utils.c implementation.c parsing2.c parsing3.c implementation_tools.c implementation_tools2.c
+SRCS = so_long.c read_map.c parsing.c get_next_line.c get_next_line_utils.c implementation.c parsing2.c parsing3.c implementation_tools.c implementation_tools2.c implementation3_tools.c
 
 OBJ = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:54:04 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 21:36:04 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 23:58:52 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,42 +32,54 @@ void	ft_hieght(t_data *data, char *file)
 	close(fd);
 }
 
+void	loop_map(t_data *data, int fd)
+{
+	char	*joiner;
+	char	*buffer;
+
+	joiner = NULL;
+	while (1)
+	{
+		buffer = get_next_line(fd);
+		if (buffer == NULL)
+			break ;
+		joiner = ft_strjoin1(joiner, buffer);
+		data->height++;
+		free(buffer);
+		buffer = NULL;
+	}
+	if (joiner[ft_strlen1(joiner) - 1] == '\n')
+	{
+		close(fd);
+		ft_free1(data->map);
+		free(joiner);
+		print_error("Error there is a new in the end of file");
+	}
+	data->map = ft_split(joiner, '\n');
+	free(joiner);
+}
+
 int	map_dyali(t_data *data, char *file)
 {
-	int		lenght;
-	char	*buffer;
-	int		fd;
+	int	fd;
 
-	lenght = data->height;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("fail the file\n");
-	data->map = (char **)malloc(sizeof(char *) * (lenght + 1));
+	data->height = 0;
+	loop_map(data, fd);
 	if (data->map == NULL)
 	{
 		close(fd);
 		ft_free1(data->map);
 		print_error("failed malloc\n");
 	}
-	lenght = 0;
-	while (1)
-	{
-		buffer = get_next_line(fd);
-		if (buffer == NULL)
-			break ;
-		if (buffer[ft_strlen(buffer) - 1] == '\n')
-			buffer[ft_strlen(buffer) - 1] = '\0';
-		data->map[lenght] = ft_strdup(buffer);
-		lenght++;
-		free(buffer);
-		buffer = NULL;
-	}
-	if (lenght == 0)
+	if (data->height == 0)
 	{
 		close(fd);
 		return (1);
 	}
-	data->map[lenght] = 0;
+	data->map[data->height] = 0;
 	data->width = ft_strlen(data->map[0]);
 	close(fd);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:57:29 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 15:42:18 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 23:55:28 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_posistion
 }			t_position;
 
 // int  keycode(int keycode, t_position *position);
-void		check_if_valid_player(t_data *data);
+void		check_if_valid_player(t_data *data, int i);
 t_position	get_player_pos(t_data *data);
 char		*ft_strchr(const char *s, int c);
 void		ft_read_map(t_data *data, char *file);
@@ -81,6 +81,8 @@ void		render_map(t_data *data);
 
 /////////////////////////////////////////////////////keycodefunciton
 
+char		*ft_strjoin1(char *s1, char const *s2);
+char		**ft_split(char const *s, char c);
 void		move_up(t_data *data);
 void		move_down(t_data *data);
 void		move_left(t_data *data);

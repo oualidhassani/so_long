@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 14:46:49 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/21 12:30:15 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/25 23:34:17 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	c;
 
 	c = 0;
-	while (s[c] != '\0')
+	while (s && s[c] != '\0')
 	{
 		c++;
 	}
