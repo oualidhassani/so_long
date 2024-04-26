@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:54:04 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 23:58:52 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 11:45:56 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	loop_map(t_data *data, int fd)
 	if (joiner[ft_strlen1(joiner) - 1] == '\n')
 	{
 		close(fd);
-		ft_free1(data->map);
 		free(joiner);
 		print_error("Error there is a new in the end of file");
 	}

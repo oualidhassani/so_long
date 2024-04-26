@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:46:50 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 15:42:47 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:15:54 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ int	keycode(int keycode, t_data *data)
 {
 	if (data->count == 0)
 		data->count = 1;
-	if (keycode == 13 || keycode == 1 || keycode == 0 || keycode == 2)
-	{
-		ft_putnbr(data->count++);
-		write(1, "\n", 1);
-	}
 	if (keycode == 13)
 		move_up(data);
 	if (keycode == 1)

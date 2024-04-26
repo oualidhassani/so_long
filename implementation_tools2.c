@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:46:48 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 15:47:24 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:17:13 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_putnbr(int n)
 
 int	exit_from_window(t_data *data)
 {
-	handletextures(data);
 	destroyimage(data);
 	exit(0);
 	return (0);
