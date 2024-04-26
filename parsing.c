@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:48:59 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/25 23:54:59 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:21:56 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,9 @@ void	check_if_valid_player(t_data *data, int i)
 	int	flag;
 	int	flag2;
 	int	j;
-
+	int flag3;
 	flag = 0;
+	flag3 = 0;
 	flag2 = 0;
 	while (data->map[i])
 	{
@@ -119,13 +120,15 @@ void	check_if_valid_player(t_data *data, int i)
 				flag++;
 			if (data->map[i][j] == 'E')
 				flag2++;
+			if (data->map[i][j] == 'C')
+				flag3++;
 			j++;
 		}
 		i++;
 	}
-	if (flag != 1 || flag2 != 1)
+	if (flag != 1 || flag2 != 1 || flag3 < 1)
 	{
 		ft_free1(data->map);
-		print_error("Error there is no exit or player\n");
+		print_error("Error there is more than exit or player, or no coin \n");
 	}
 }

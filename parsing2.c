@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:51:12 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/26 12:18:14 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:22:39 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	check_dotber(char **av)
 
 	str = ".ber";
 	len = ft_strlen(av[1]);
-	if (av[1][len - 4] == '.' && av[1][len - 5] == '/')
+	if ((av[1][len - 4] == '.' && av[1][len - 5] == '/'))
 		print_error("Error hiden file");
 	if (len >= 4)
 	{
