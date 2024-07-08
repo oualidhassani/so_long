@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:48:59 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/26 16:21:56 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 19:12:51 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,12 @@ void	check_walls_helper(t_data *data)
 	}
 }
 
-void	check_if_valid_player(t_data *data, int i)
+void	check_if_valid_player(t_data *data, int i, int flag, int flag2)
 {
-	int	flag;
-	int	flag2;
 	int	j;
-	int flag3;
-	flag = 0;
+	int	flag3;
+
 	flag3 = 0;
-	flag2 = 0;
 	while (data->map[i])
 	{
 		j = 0;

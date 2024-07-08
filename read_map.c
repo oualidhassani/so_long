@@ -6,7 +6,7 @@
 /*   By: ohassani <ohassani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 12:54:04 by ohassani          #+#    #+#             */
-/*   Updated: 2024/04/26 18:48:29 by ohassani         ###   ########.fr       */
+/*   Updated: 2024/04/26 21:29:31 by ohassani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	loop_map(t_data *data, int fd)
 		joiner = ft_strjoin1(joiner, buffer);
 		data->height++;
 		free(buffer);
-		buffer = NULL;
 	}
 	if (!joiner)
 		print_error("Error map empty");
